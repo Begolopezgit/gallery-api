@@ -1,0 +1,360 @@
+@use "../abstracts/variables" as va;
+@use "../abstracts/mixins" as mx;
+@use "sass:color";
+main {
+  background-color: va.$background;
+  display: flex;
+  justify-content: center;
+
+  h1 {
+    span {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .main__contenedor {
+    width: 80%;
+    .hero__contenedor {
+      @include mx.breakpoint(tablet) {
+        justify-content: center;
+        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+      }
+
+      &__titulos {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        @include mx.breakpoint(tablet) {
+          text-align: left;
+          margin-top: 30px;
+        }
+        h2 span {
+          display: block;
+          font-size: 30px;
+          margin-top: 20px;
+          margin-bottom: 20px;
+        }
+      }
+      &__imagen {
+        img {
+          width: 99%;
+        }
+      }
+      .destacado {
+        // 1. Aplicas el degradado como fondo (background o background-image)
+        background: va.$linearSecondaryAccent;
+
+        // 2. Recortas el fondo para que solo dibuje el interior del texto
+        -webkit-background-clip: text;
+        background-clip: text;
+
+        // 3. Haces el texto transparente para revelar el fondo degradado
+        color: transparent;
+      }
+    }
+    .tarjetas__contenedor {
+      &__sorpresa {
+        margin-bottom: 15px;
+        h3 {
+          font-weight: 800;
+        }
+        //background-color: lighten(va.$secondary, 10%);
+        background-color: color.adjust(va.$secondary, $lightness: 10%);
+        padding: 30px;
+        padding-left: 50px;
+        border-radius: 15px;
+        ul {
+          @include mx.reset-list();
+          padding: 15px;
+          li {
+            @include mx.check_azul();
+          }
+        }
+        .bot_targetas {
+          @include mx.bots_favorito();
+          display: block;
+          margin-left: auto;
+          background-color: color.adjust(va.$secondary, $lightness: 20%);
+        }
+      }
+      &__eliges {
+        margin-bottom: 15px;
+        h3 {
+          font-weight: 800;
+        }
+        background-color: color.adjust(va.$secondary, $lightness: 20%);
+        padding: 30px;
+        padding-left: 50px;
+        border-radius: 15px;
+        ul {
+          @include mx.reset-list();
+          padding: 15px;
+          li {
+            @include mx.check_azul();
+          }
+        }
+        .bot_targetas {
+          @include mx.bots_favorito();
+          display: block;
+          margin-left: auto;
+          background-color: color.adjust(va.$secondary, $lightness: 10%);
+        }
+      }
+      &__favoritos {
+        margin-bottom: 15px;
+        h3 {
+          font-weight: 800;
+        }
+        background-color: color.adjust(va.$secondary, $lightness: 10%);
+        padding: 30px;
+        padding-left: 50px;
+        border-radius: 15px;
+        ul {
+          @include mx.reset-list();
+          padding: 15px;
+          li {
+            @include mx.check_azul();
+          }
+        }
+        .bot_targetas {
+          @include mx.bots_favorito();
+          display: block;
+          margin-left: auto;
+        }
+      }
+      @include mx.breakpoint(tablet) {
+        display: flex;
+        gap: 20px;
+        align-items: stretch; // Esto asegura que todas compartan el mismo alto máximo
+
+        // Seleccionamos todos los articles hijos para darles el mismo ancho
+        > article {
+          flex: 1; // Ahora sí, cada tarjeta ocupa exactamente 1 fracción del espacio
+          padding: 20px;
+          // Convertimos la tarjeta en un flexbox vertical para controlar el botón
+          display: flex;
+          flex-direction: column;
+          > ul {
+            padding: 10px 0px;
+          }
+
+          .bot_targetas {
+            margin-top: auto; // Empuja mágicamente el botón hacia el borde inferior
+            // (El margin-left: auto que ya tenías lo mantendrá pegado a la derecha)
+          }
+        }
+      }
+    }
+    .imagenes__contenedor {
+      margin-top: 50px;
+
+      h3 {
+        text-align: center;
+        font-size: 32px;
+        margin-bottom: 30px;
+      }
+
+      .galeria-grid {
+        display: grid;
+        gap: 15px; // Espacio entre las fotos
+
+        // Móvil: 1 columna por defecto
+        grid-template-columns: 1fr;
+
+        // Tablet vertical: 3 columnas
+        @include mx.breakpoint(tablet) {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        // Tablet horizontal: 4 columnas
+        @include mx.breakpoint(tablethorizontal) {
+          grid-template-columns: repeat(4, 1fr);
+        }
+
+        // Escritorio: 5 columnas
+        @include mx.breakpoint(desktop) {
+          grid-template-columns: repeat(5, 1fr);
+        }
+
+        .galeria-item {
+          margin: 0; // Resetea el margen que traen las etiquetas <figure>
+          position: relative;
+          border-radius: 12px;
+          overflow: hidden; // Asegura que la imagen respete los bordes redondeados
+          aspect-ratio: 3 / 4; // Fuerza que todas las cajas sean cuadradas (ajusta a 4/5 si prefieres rectángulos)
+          position: relative; // para posicionar el botón(corazón) sobre la foto
+          .btn-favorito {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 2;
+            background-color: color.adjust(va.$accent, $lightness: 40%);
+            border: none;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            color: #ffffff;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition:
+              transform 0.2s,
+              background-color 0.2s,
+              color 0.2s;
+
+            &:hover {
+              transform: scale(1.15);
+            }
+
+            &.activo {
+              color: va.$primary;
+              background: va.$background;
+              border: 1px solid va.$accent;
+            }
+          }
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; // Imprescindible para que la foto llene la caja sin deformarse
+            object-position: top center; //para poner foco al recorte arriba y centro
+            display: block;
+            transition: transform 0.3s ease;
+          }
+
+          // Capa de información oculta por defecto
+          .galeria-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(
+              to top,
+              rgba(0, 0, 0, 0.8),
+              transparent
+            );
+            color: #fff;
+            padding: 15px 10px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+          }
+
+          // Efectos Hover (Opcional pero recomendado para escritorio)
+          &:hover {
+            img {
+              transform: scale(1.05); // Pequeño zoom a la foto
+            }
+            .galeria-info {
+              opacity: 1; // Muestra el nombre
+            }
+          }
+        }
+      }
+
+      .galeria-acciones {
+        margin-top: 40px;
+        margin-bottom: 40px;
+        display: flex;
+        justify-content: center;
+
+        .btn-cargar {
+          @include mx.bots_favorito(); // Reutilizas tu propio mixin
+          background-color: va.$accent;
+          color: va.$background;
+          padding: 15px 40px;
+          font-size: 18px;
+          cursor: pointer;
+
+          &:hover {
+            background-color: color.adjust(va.$accent, $lightness: 10%);
+          }
+        }
+      }
+    }
+    .filtros__contenerdor {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 40px;
+      width: 100%;
+
+      // En pantallas grandes, las cajas se alinean en horizontal ocupando lo mismo
+      @include mx.breakpoint(tablet) {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .filtro__caja {
+        flex: 1; // Obliga a que las 3 cajas tengan el ancho exacto
+        // Ajusta al tono de tus otras tarjetas
+        background-color: color.adjust(va.$secondary, $lightness: 15%);
+        border-radius: 12px;
+        padding: 20px;
+
+        .filtro__titulo {
+          font-size: 18px;
+          font-weight: 800;
+          margin-bottom: 15px;
+        }
+
+        .filtro__lista {
+          @include mx.reset-list();
+          max-height: 160px; // Esta es la altura fija para las 3 cajas
+          overflow-y: auto; // Activa el scroll vertical solo si el contenido rebasa los 160px
+          padding-right: 10px; // Deja aire para que el texto no se pegue a la barra de scroll
+
+          // Personalización de la barra de scroll para mantener la estética
+          &::-webkit-scrollbar {
+            width: 6px;
+          }
+          &::-webkit-scrollbar-track {
+            background-color: color.adjust(va.$secondary, $lightness: 5%);
+            border-radius: 10px;
+          }
+          &::-webkit-scrollbar-thumb {
+            background-color: va.$accent;
+            border-radius: 10px;
+          }
+
+          li {
+            margin-bottom: 12px;
+
+            label {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              cursor: pointer;
+              font-size: 15px;
+              transition: color 0.2s ease;
+
+              &:hover {
+                color: va.$accent;
+              }
+            }
+
+            // Aplico color azul a las opciones (inputs)
+            input[type="radio"] {
+              accent-color: va.$accent;
+              width: 16px;
+              height: 16px;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+    .bot_targetas {
+      @include mx.bots_favorito();
+      background-color: color.adjust(va.$secondary, $lightness: 10%);
+    }
+  }
+}

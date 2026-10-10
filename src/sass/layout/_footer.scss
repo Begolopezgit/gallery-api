@@ -1,0 +1,22 @@
+@use "../abstracts/variables" as va;
+@use "../abstracts/mixins" as mx;
+@use "sass:color";
+footer {
+  height: 150px;
+  background-color: color.adjust(va.$accent, $lightness: 40%);
+  .foote__contenedor {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    width: 80%;
+    img {
+      width: 90px;
+    }
+    ul {
+      @include mx.reset-list();
+      li {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

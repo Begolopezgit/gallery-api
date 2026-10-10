@@ -1,0 +1,28 @@
+@use "../abstracts/variables" as va;
+@use "../abstracts/mixins" as mx;
+
+header {
+  background-color: va.$background;
+  display: flex;
+  justify-content: center;
+  .header__contenedor {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    img {
+      width: 70px;
+    }
+    .bot__favoritos {
+      @include mx.bots_favorito();
+    }
+    .bot__info {
+      background-color: va.$accent;
+      padding: 19px 19px;
+      font-size: 16px;
+      border-radius: 100px;
+      color: va.$background;
+    }
+  }
+}

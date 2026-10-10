@@ -1,0 +1,10 @@
+//Definiciónes, utilización de alias
+@use "../sass/abstracts/_variables/" as va;
+@use "../sass/abstracts/_mixins" as mx;
+@use "../sass/abstracts/_functions" as fn;
+
+//los ficheros utilizados
+@use "../sass/themes/default";
+@use "../sass/layout/header";
+@use "../sass/layout/mai";
+@use "../sass/layout/footer";

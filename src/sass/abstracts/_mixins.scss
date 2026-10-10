@@ -1,0 +1,49 @@
+@use "../abstracts/variables" as va;
+
+@mixin breakpoint($bp) {
+  @if $bp == tablet {
+    @media (min-width: va.$bp-tablet) {
+      @content;
+    }
+  }
+
+  @if $bp == tablethorizontal {
+    @media (min-width: va.$bp-tablethorizontal) {
+      @content;
+    }
+  }
+
+  @if $bp == desktop {
+    @media (min-width: va.$bp-desktop) {
+      @content;
+    }
+  }
+
+  @if $bp == desktopxl {
+    @media (min-width: va.$bp-desktopxl) {
+      @content;
+    }
+  }
+}
+@mixin bots_favorito() {
+  background-color: va.$primary;
+  padding: 12px 26px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 16px;
+}
+@mixin reset-list() {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  align-items: center;
+}
+@mixin check_azul() {
+  list-style: none;
+  padding-left: 2rem;
+  background-image: url("../../../public/images/Check.svg");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 30px;
+  margin-bottom: 8px;
+}

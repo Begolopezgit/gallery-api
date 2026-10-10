@@ -1,0 +1,14 @@
+@use "../abstracts/variables" as va;
+
+html * {
+  font-family: va.$font-content;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+  background-color: white;
+  box-sizing: border-box;
+}

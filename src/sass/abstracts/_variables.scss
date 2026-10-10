@@ -1,0 +1,26 @@
+$bp-tablet: 768px;
+$bp-tablethorizontal: 1024px;
+$bp-desktop: 1200px;
+$bp-desktopxl: 1440px;
+
+$font-titles: "Quicksand", sans-serif;
+$font-content: "Quicksand", sans-serif;
+
+/* $brown: #d5966c;
+$black: #151515;
+$grey: #444444;
+$white: #ffffff;
+$grey-light: #e5e6e8; */
+
+$text: #040d3a;
+$background: #f7ede3;
+$primary: #ee51c5;
+$secondary: #e47cf2;
+$accent: #224cea;
+
+$linearPrimarySecondary: linear-gradient(#ee51c5, #e47cf2);
+$linearPrimaryAccent: linear-gradient(#ee51c5, #224cea);
+$linearSecondaryAccent: linear-gradient(#e47cf2, #224cea);
+$radialPrimarySecondary: radial-gradient(#ee51c5, #e47cf2);
+$radialPrimaryAccent: radial-gradient(#ee51c5, #224cea);
+$radialSecondaryAccent: radial-gradient(#e47cf2, #224cea);

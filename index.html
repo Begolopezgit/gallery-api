@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>10 minutos para ti</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <div class="body__contenedor">
+      <header>
+        <div class="header__contenedor">
+          <img src="/images/logo10cat.png"  alt="">
+          <button class="bot__favoritos">Tus Favoritos</button>
+          <button class="bot__info">Info</button>
+        </div>
+      </header>
+      <main>
+        <div class="main__contenedor">
+          <h1>
+            <span>Con solo 10 minutos tu cerebro se resetea del estres.</span>
+          </h1>
+          <div class="hero__contenedor">
+            <div class="hero__contenedor__titulos">
+              <h2>
+                <span class="destacado">Mira.</span>
+                <span class="destacado">Te cuento.</span>
+                <span
+                  >Estas imágenes te cargan de energía y emociones
+                  positivas.</span
+                >
+              </h2>
+              <h3 class="destacado">¿Quieres crea tu galería de energía?</h2>
+            </div>
+
+            <div class="hero__contenedor__imagen">
+              <img src="/images/3rusianblue-home.jpg" alt="" />
+            </div>
+          </div>
+
+          <div class="tarjetas__contenedor">
+
+            <article class="tarjetas__contenedor__sorpresa">
+              <h3 class="titulo_tarjeta">SORPRENDEME</h3>
+              <ul>
+                <li>Dispones de uno de los catálogos más grandes</li>
+                <li>¿Quieres ver imágenes nuevas y diferentes?</li>
+              </ul>
+              <button class="bot_targetas">Si quiero</button>
+            </article>
+
+            <article class="tarjetas__contenedor__eliges">
+              <h3 class="titulo_tarjeta">TU ELIGES</h3>
+              <ul>
+                <li>Selecciona tus preferencias</li>
+                <li>Por origen, temperamento o raza</li>
+              </ul>
+              <button class="bot_targetas">Preferencias</button>    
+            </article>
+
+              <article class="tarjetas__contenedor__favoritos">
+              <h3 class="titulo_tarjeta">TUS FAVORITOS</h3>
+              <ul>
+                <li>Aquí tienes tu galería</li>
+                <li>Disfruta de tu galería de energía</li>
+              </ul>
+              <button class="bot_targetas">Mis favoritos</button>
+            </article>
+
+          </div>
+          <div class="imagenes__contenedor" id="imagenes__contenedor">
+            <h3>¿Cual te hace sentirte mejor?</h3>
+            
+            <!-- Contenedor principal de la cuadrícula -->
+            <div class="galeria-grid" id="galeria-gatos">
+              
+              <!-- Elemento 1 (Este es el bloque que  JavaScript creará dinámicamente) -->
+              <figure class="galeria-item">
+                <img src="url-de-la-api.jpg" alt="Gato de raza Siamés" loading="lazy">
+                <!-- Opcional: Para poner el nombre de la raza o el icono de favorito encima de la foto -->
+                <figcaption class="galeria-info">
+                  <span>Siamés</span>
+                </figcaption>
+              </figure>
+
+              <!-- Elemento 2 (Ejemplo visual) -->
+              <figure class="galeria-item">
+                <img src="url-de-la-api-2.jpg" alt="Gato Azul Ruso" loading="lazy">
+                <figcaption class="galeria-info">
+                  <span>Azul Ruso</span>
+                </figcaption>
+              </figure>
+
+              <!-- Aquí irán apareciendo el resto de gatos... -->
+
+            </div> <!-- Cierre de .galeria-grid -->
+
+            <!-- Contenedor para el botón estático de Cargar Más -->
+            <div class="galeria-acciones" >
+              <button id="btn-cargar-mas" class="btn-cargar">Ver más </button>
+            </div>
+
+          </div>
+          <div class="filtros__contenerdor">
+            <!-- Caja de Raza -->
+            <div class="filtro__caja">
+              <h4 class="filtro__titulo">Raza</h4>
+              <ul class="filtro__lista" id="lista-razas">
+                <li><label><input type="radio" name="raza" value="todas" checked> Todas</label></li>
+                <!-- El resto lo añadimos con js. -->
+
+              </ul>
+            </div>
+
+            <!-- Caja de Origen -->
+            <div class="filtro__caja">
+              <h4 class="filtro__titulo">Origen</h4>
+              <ul class="filtro__lista" id="lista-origenes">
+                <li><label><input type="radio" name="origen" value="todos" checked> Todos</label></li>
+
+              </ul>
+            </div>
+
+            <!-- Caja de Temperamento -->
+            <div class="filtro__caja">
+              <h4 class="filtro__titulo">Temperamento</h4>
+              <ul class="filtro__lista" id="lista-temperamentos">
+                <li><label><input type="radio" name="temperamento" value="todos" checked> Todos</label></li>
+
+              </ul>
+            </div>
+
+          </div>
+          <div class="filtros__acciones" style="display: flex; justify-content: center; margin-bottom: 40px;">
+              <button id="btn-filtrar" class="bot_targetas">Tu eliges</button>
+          </div>
+        </div>
+      </main>
+
+      <footer>
+        <div class="foote__contenedor">
+          <div class="logo">
+            <img src="/images/logo10cat.png" alt="">
+          </div>
+          <div class="enlaces">
+            <ul>
+              <li>
+                <a href="">Información</a>
+              </li>
+              <li>
+                 <a href="#imagenes__contenedor" class="enlFavoritos">Tus favoritos</a>
+              </li>
+              
+            </ul>
+          </div>
+          <div class="legales">
+            <ul>
+              <li>
+                <a href="">Términos y condiciones</a>
+              </li>
+              <li>
+                <a href="">Política de cookies</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+  </body>
+</html>
